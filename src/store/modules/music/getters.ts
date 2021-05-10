@@ -1,12 +1,15 @@
 import { isDef, playModeMap } from '@/utils';
-import {ElNotification} from 'element-plus';
+import {MusicStateInterface} from './state';
+import {SongInterface} from '@/utils/interface';
 
-export const currentIndex = (state: any) => {
+export interface MusicGetterInterface {
+  currentIndex: number;
+}
+export const currentIndex = (state: MusicStateInterface) => {
   const { currentSong, playlist } = state;
-  return playlist.findIndex(({ id }: any) => id === currentSong.id);
+  return playlist.findIndex(({ id }: SongInterface) => id === currentSong.id);
 };
-
-export const nextSong = (state: any, getters: any) => {
+export const nextSong = (state: MusicStateInterface, getters: MusicGetterInterface) => {
   const { playlist, playMode } = state;
   const nextStartMap = {
     [playModeMap.sequence.code]: getSequenceNextIndex,
@@ -37,9 +40,8 @@ export const nextSong = (state: any, getters: any) => {
     return getters.currentIndex;
   }
 };
-
 // 上一首歌
-export const prevSong = (state: any, getters: any) => {
+export const prevSong = (state: MusicStateInterface, getters: MusicGetterInterface) => {
   const { playlist, playMode } = state;
   const prevStratMap = {
     [playModeMap.sequence.code]: genSequencePrevIndex,
@@ -67,14 +69,12 @@ export const prevSong = (state: any, getters: any) => {
     return getRandomIndex(playlist, getters.currentIndex);
   }
 };
-
 // 当前是否有歌曲在播放
-export const hasCurrentSong = (state: any) => {
+export const hasCurrentSong = (state: MusicStateInterface) => {
   return isDef(state.currentSong.id);
 };
-
 // 获取随机索引
-function getRandomIndex(playlist: any, currentIndex: number) {
+function getRandomIndex(playlist: SongInterface [] , currentIndex: number) {
   // 防止无限循环
   if (playlist.length === 1) {
     return currentIndex;
@@ -85,16 +85,7 @@ function getRandomIndex(playlist: any, currentIndex: number) {
   }
   return index;
 }
-
-function VipAuthTip({is_vip, name}:any){
-  if (is_vip){
-    ElNotification({
-      message: `歌曲【${name}】不支持播放！`,
-      type: 'warning',
-      duration: 3000,
-    });
-    return true;
-  }
-
-  return false;
+// 获取播放列表是否存在歌曲
+function existInList(state: MusicStateInterface) {
+  return !!state.playlist.length;
 }

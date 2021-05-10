@@ -19,8 +19,8 @@ function createBaseInstance() {
     baseURL: '/api',
     // timeout: 5000,
     headers: {
-      'X-Custom-Header': 'foobar'
-    }
+      'X-Custom-Header': 'foobar',
+    },
   });
 
   // 响应拦截
@@ -82,7 +82,7 @@ function mixinLoading(interceptors: InterceptorsInterface) {
     return response;
   }
 
-  function loadingResponseErrorInterceptor(e:any) {
+  function loadingResponseErrorInterceptor(e: Error) {
     handleResponseLoading();
     throw e;
   }

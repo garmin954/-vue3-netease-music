@@ -4,8 +4,9 @@
 import { getAlbum, getMvDetail } from '@/api';
 import router from '@/router';
 import { isDef, notify } from './common';
+import {ArtistInterface, SongInterface} from '@/utils/interface';
 
-export function createSong(song: any) {
+export function createSong(song: any): SongInterface {
   const { id, name, img, artists, duration, albumId, albumName, mvId, fee, ...rest } = song;
 
   return {
@@ -27,23 +28,23 @@ export function createSong(song: any) {
   };
 }
 
-export async function getSongImg(id: number, albumId: number) {
+export async function getSongImg(id: number, albumId: number): Promise<string> {
   if (!isDef(albumId)) {
     throw new Error('need albumId');
   }
   const { songs }: any = await getAlbum(albumId);
   const {
     al: { picUrl },
-  } = songs.find(({ id: songId }: any) => songId === id) || {};
+  } = songs.find(({ id: songId }: SongInterface) => songId === id) || {};
   return picUrl;
 }
 
-export function genArtistisText(artists: any) {
-  return (artists || []).map(({ name }: any) => name).join('/');
+export function genArtistisText(artists: ArtistInterface []): string {
+  return (artists || []).map(({ name }: ArtistInterface) => name).join('/');
 }
 
 // 有时候虽然有mvId 但是请求却404 所以跳转前先请求一把
-export async function goMvWithCheck(id: number) {
+export async function goMvWithCheck(id: number): Promise<void> {
   try {
     await getMvDetail(id);
     goMv(id);
@@ -52,10 +53,10 @@ export async function goMvWithCheck(id: number) {
   }
 }
 
-export function goMv(id: number) {
+export function goMv(id: number): void {
   router.push(`/mv/${id}`);
 }
 
-function genSongPlayUrl(id: number) {
+function genSongPlayUrl(id: number): string {
   return `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
 }

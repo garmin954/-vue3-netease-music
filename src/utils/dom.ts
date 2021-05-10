@@ -1,12 +1,12 @@
-export function hasClass(el: HTMLElement, className: any) {
+export function hasClass(el: HTMLElement, className: string) {
   return el.classList.contains(className);
 }
 
-export function addClass(el: HTMLElement, className: any) {
+export function addClass(el: HTMLElement, className: string) {
   el.classList.add(className);
 }
 
-export function getData(el: HTMLElement, name: any, val: any) {
+export function getData(el: HTMLElement, name: string, val: string) {
   const prefix = 'data-';
   if (val) {
     return el.setAttribute(prefix + name, val);
@@ -34,7 +34,7 @@ const vendor = ( () => {
   return false;
 })();
 
-export function prefixStyle(style: any) {
+export function prefixStyle(style: string) {
   if (vendor === false) {
     return false;
   }
@@ -46,15 +46,17 @@ export function prefixStyle(style: any) {
   return vendor + style.charAt(0).toUpperCase() + style.substr(1);
 }
 
-export function hasParent(dom: any, parentDom: any) {
+export function hasParent(dom: (Node & ParentNode) | null, parentDom: HTMLDocument | HTMLDocument[]): boolean {
   parentDom = Array.isArray(parentDom) ? parentDom : [parentDom];
   while (dom) {
-    if (parentDom.find((p: any) => p === dom)) {
+    if (parentDom.find((p: HTMLDocument) => p === dom)) {
       return true;
     } else {
       dom = dom.parentNode;
     }
   }
+
+  return false;
 }
 
 export function scrollInto(dom: HTMLElement) {

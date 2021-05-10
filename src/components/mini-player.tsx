@@ -69,7 +69,7 @@ export default defineComponent({
       };
 
       const goGitHub = () => {
-
+        window.open('https://github.com/garmin954/-vue3-netease-music')
       };
 
 
@@ -302,7 +302,7 @@ export default defineComponent({
               <volume volume={state.volume} onVolumeChange={onVolumeChange} />
             </div>
             {/* github*/}
-            <c-icon size={20} onClick={goGitHub} class='mode-item' type='github'/>
+            <c-icon size={20} onClick={goGitHub} class='mode-item' type='github' title={'Garmin Github'}/>
           </div>
 
           <div class='progress-bar-wrap'>

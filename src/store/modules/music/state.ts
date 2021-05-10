@@ -1,26 +1,38 @@
 import Cookies from 'js-cookie';
 import { PLAY_HISTORY_KEY } from '@/utils';
 import { playModeMap } from '@/utils/config';
-
-export default {
+import {SongInterface} from '@/utils/interface';
+export interface MusicStateInterface {
   // 当前播放歌曲
-  currentSong: {},
+  currentSong : SongInterface | {};
   // 当前播放时长
-  currentTime: 0,
+  currentTime: number;
   // 播放状态
-  playing: false,
+  playing: boolean;
   // 播放模式
-  playMode: playModeMap.sequence.code,
+  playMode: string;
   // 播放列表显示
-  isPlaylistShow: false,
+  isPlaylistShow: boolean;
   // 播放提示显示
-  isPlaylistPromptShow: false,
+  isPlaylistPromptShow: boolean;
   // 歌曲详情页显示
-  isPlayerShow: false,
+  isPlayerShow: boolean;
   // 播放列表数据
-  playlist: [],
+  playlist: any [];
   // 播放历史数据
-  playHistory: Cookies.getJSON(PLAY_HISTORY_KEY)  || [],
+  playHistory: any [];
   // 菜单显示
+  isMenuShow: boolean;
+}
+export default {
+  currentSong: {},
+  currentTime: 0,
+  playing: false,
+  playMode: playModeMap.sequence.code,
+  isPlaylistShow: false,
+  isPlaylistPromptShow: false,
+  isPlayerShow: false,
+  playlist: [],
+  playHistory: Cookies.getJSON(PLAY_HISTORY_KEY)  || [],
   isMenuShow: true,
-};
+} as MusicStateInterface;

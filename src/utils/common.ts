@@ -1,6 +1,4 @@
 import { ElNotification } from 'element-plus';
-import {prop} from 'vue-class-component';
-
 export { debounce, throttle } from 'lodash';
 // 补全0
 export function pad(num: number, n = 2): string {
@@ -117,7 +115,7 @@ export function notify(message: string, type ?: 'success' | 'warning' | 'info' |
 // });
 
 // 打开全屏
-export function requestFullScreen(element: Element | any): void {
+export function requestFullScreen(element: HTMLElement | any): void {
   const docElm = element;
   if (docElm.requestFullscreen) {
     docElm.requestFullscreen();
@@ -132,7 +130,7 @@ export function requestFullScreen(element: Element | any): void {
 
 // 关闭全屏
 export function exitFullscreen(): void {
-  const de: Document|any = window.parent.document;
+  const de: HTMLElement|any = window.parent.document;
 
   if (de.exitFullscreen) {
     de.exitFullscreen();
@@ -172,6 +170,7 @@ export function isFalse(v: any): boolean {
   return v === false;
 }
 
+// 获取页数
 export function getPageOffset(page: number, limit: number): number {
   if (page === 0) {
     return 0;
@@ -179,6 +178,7 @@ export function getPageOffset(page: number, limit: number): number {
   return (page - 1) * limit;
 }
 
+// 去重
 export function uniqueArrObj(arr: any [], objKay: string) {
   const temp = new Map();
   return arr.filter((item: any) => !temp.has(item[objKay]) && temp.set(item[objKay], 1));

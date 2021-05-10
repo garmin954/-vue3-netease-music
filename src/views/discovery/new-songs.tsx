@@ -8,6 +8,7 @@ import {createSong} from '@/utils';
 
 // @ts-ignore
 import $style from '@/assets/style/discovery/new-songs.module.scss';
+import {SongInterface} from '@/utils/interface';
 
 const songsLimit = 10;
 export default defineComponent({
@@ -64,9 +65,9 @@ export default defineComponent({
       addToPlaylist(normalizedSongs.value[index]);
     };
 
-    const setPlaylist = (songs: any) => store.commit('music/setPlaylist', songs);
-    const startSong = (songs: any) => store.dispatch('music/startSong', songs);
-    const addToPlaylist = (song: any) => store.dispatch('music/addToPlaylist', song);
+    const setPlaylist = (songs: SongInterface []) => store.commit('music/setPlaylist', songs);
+    const startSong = (songs: SongInterface []) => store.dispatch('music/startSong', songs);
+    const addToPlaylist = (song: SongInterface []) => store.dispatch('music/addToPlaylist', song);
 
     // 分成两队
     const thunkedList = computed(() => {

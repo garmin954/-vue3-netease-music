@@ -1,10 +1,11 @@
 import Storage from 'js-cookie';
 import { PLAY_HISTORY_KEY,  getSongImg } from '@/utils';
 import {ElNotification} from 'element-plus';
+import {SongInterface} from '@/utils/interface';
 
 export default {
   // 整合歌曲信息 并且开始播放
-  async startSong({ commit, state }: any, rawSong?: any) {
+  async startSong({ commit, state }: any, rawSong?: SongInterface) {
     // 浅拷贝一份 改变引用
     // 1.不污染元数据
     // 2.单曲循环为了触发watch
@@ -18,10 +19,10 @@ export default {
     commit('setPlayingState', true);
 
     // 历史记录
-    let { playHistory } = state;
+    const { playHistory } = state;
     // playHistory = JSON.parse(playHistory);
     const playHistoryCopy = playHistory.slice();
-    const findedIndex = playHistoryCopy.findIndex(({ id }:any) => song.id === id);
+    const findedIndex = playHistoryCopy.findIndex(({ id }: SongInterface) => song.id === id);
 
     if (findedIndex !== -1) {
       // 删除旧那一项, 插入到最前面
@@ -41,14 +42,14 @@ export default {
     dispatch('clearCurrentSong');
   },
   clearHistory({ commit }: any) {
-    const history: any [] = [];
+    const history: SongInterface [] = [];
     commit('setPlayHistory', history);
     Storage.set(PLAY_HISTORY_KEY, history);
   },
-  addToPlaylist({ commit, state }: any, song: any) {
+  addToPlaylist({ commit, state }: any, song: SongInterface) {
     const { playlist } = state;
     const copy = playlist.slice();
-    if (!copy.find(({ id }: any) => id === song.id)) {
+    if (!copy.find(({ id }: SongInterface) => id === song.id)) {
       copy.unshift(song);
       commit('setPlaylist', copy);
     }
