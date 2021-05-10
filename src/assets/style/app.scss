@@ -1,0 +1,86 @@
+/**
+ ** 应用级别的一些样式
+ **/
+body {
+  color: var(--font-color);
+
+  // 禁止文字选中
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+::selection {
+  background-color: $theme-color;
+  color: white;
+}
+
+// 滚动条
+::-webkit-scrollbar-track {
+  //background-color: var(--menu-bgcolor);
+  opacity: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  //background-color: #f5f5f5;
+  opacity: 0;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  opacity: 0;
+
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.5s;
+  transform: none;
+}
+.slide-enter,
+.slide-leave-to {
+  transform: translateY(100%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s;
+  opacity: 1;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// 转化为rem
+.iconfont {
+  font-size: 16px;
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+  &:hover,
+  &:focus,
+  &:visited {
+    color: $black;
+  }
+}
+
+.router-link-exact-active{
+  color: $theme-color;
+  padding: 0px!important;
+  margin: 0px!important;
+}
+.router-link-exact-active> li{
+  color: $theme-color!important;
+}
+.router-view-center{
+  height: 100%;
+}
+

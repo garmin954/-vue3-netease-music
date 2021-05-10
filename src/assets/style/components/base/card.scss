@@ -1,0 +1,39 @@
+.horizontal-card {
+  display: flex;
+  padding: 0 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--light-bgcolor);
+  }
+
+  .img-wrap {
+    position: relative;
+    @include img-wrap(50px);
+
+    img {
+      border-radius: 4px;
+    }
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 8px;
+    overflow: hidden;
+    width: 100%;
+
+    .name {
+      margin-bottom: 4px;
+      font-size: $font-size-medium-sm;
+      @include text-ellipsis();
+    }
+
+    .desc {
+      font-size: $font-size-sm;
+      color: var(--font-color-grey-shallow);
+      @include text-ellipsis();
+    }
+  }
+}

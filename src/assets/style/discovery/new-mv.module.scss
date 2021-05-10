@@ -1,0 +1,19 @@
+
+.new-mvs {
+  @include list(25%);
+  .list-wrap{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -0.85714rem;
+
+    .list-item{
+      width: 25%;
+      margin-bottom: 2.57143rem;
+      padding: 0 0.85714rem;
+    }
+  }
+
+}

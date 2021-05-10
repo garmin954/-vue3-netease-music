@@ -1,0 +1,11 @@
+.new-songs {
+  margin-bottom: 36px;
+  .list-wrap {
+    display: flex;
+
+    .list {
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+}

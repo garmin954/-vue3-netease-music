@@ -1,0 +1,77 @@
+.mv {
+  padding: $page-padding;
+
+  .title {
+    margin-bottom: 16px;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+
+  .mv-content {
+    display: flex;
+    //max-width: 950px;
+    margin: auto;
+
+    .left {
+      flex: 1;
+
+      .player {
+        margin-bottom: 16px;
+        overflow: hidden;
+        border-radius: 4px;
+      }
+
+      .author-wrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+
+        .avatar {
+          @include img-wrap(60px);
+          margin-right: 8px;
+          img {
+            @include round(60px);
+          }
+        }
+
+        .author {
+          font-size: $font-size-lg;
+        }
+      }
+
+      .name {
+        margin-bottom: 16px;
+        font-size: $font-size-title-lg;
+        font-weight: $font-weight-bold;
+      }
+
+      .desc {
+        display: flex;
+        color: var(--font-color-grey-shallow);
+        font-size: $font-size-sm;
+
+        .date {
+          display: inline-block;
+          margin-right: 24px;
+        }
+      }
+
+      .comments {
+        margin-top: 48px;
+      }
+    }
+
+    .right {
+      width: 36%;
+      padding-left: 32px;
+
+      .simi-mvs {
+        padding: -8px 0;
+
+        .simi-mv-card {
+          padding: 8px 0;
+        }
+      }
+    }
+  }
+}

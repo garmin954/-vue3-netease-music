@@ -1,0 +1,17 @@
+.themes {
+  @include flex-center();
+
+  .theme-item {
+    @include flex-center();
+    flex-direction: column;
+    margin: 0 8px;
+    cursor: pointer;
+
+    .theme-icon {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      margin-bottom: 4px;
+    }
+  }
+}

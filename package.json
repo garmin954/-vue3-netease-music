@@ -1,0 +1,47 @@
+{
+  "name": "vue3_music",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/better-scroll": "^1.12.3",
+    "@types/clipboardy": "^2.0.1",
+    "@types/js-cookie": "^2.2.6",
+    "@types/lodash": "^4.14.168",
+    "better-scroll": "^2.3.0",
+    "core-js": "^3.6.5",
+    "element-plus": "^1.0.2-beta.40",
+    "js-cookie": "^2.2.1",
+    "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-0",
+    "vue-router": "^4.0.0-0",
+    "vue-template-compiler": "^2.6.12",
+    "vuex": "^4.0.0-0",
+    "workbox-webpack-plugin": "^6.1.5",
+    "xgplayer": "^2.20.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^10.1.1",
+    "style-resources-loader": "^1.4.1",
+    "typescript": "~4.1.5",
+    "vue-cli-plugin-style-resources-loader": "~0.1.5"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

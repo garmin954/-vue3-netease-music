@@ -1,0 +1,11 @@
+.artists-box{
+  display: flex;
+  flex-flow:wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  a{
+    display: flex;
+  }
+}

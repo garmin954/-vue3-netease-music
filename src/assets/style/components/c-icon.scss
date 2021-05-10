@@ -1,0 +1,31 @@
+.backdrop {
+  display: inline-block;
+  @include flex-center;
+  border-radius: 50%;
+
+  &:hover {
+    background: var(--round-hover-bgcolor);
+  }
+}
+
+.icon-component {
+  cursor: pointer;
+}
+
+.margin{
+  margin-right: 4px;
+}
+
+.icon-color {
+  // 通过prop传入这几个字段
+  // 可以使用默认的几个颜色
+  &-theme {
+    color: $theme-color;
+  }
+  &-white {
+    color: $white;
+  }
+  &-shallow {
+    color: var(--font-color-shallow-grey);
+  }
+}

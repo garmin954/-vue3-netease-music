@@ -1,0 +1,84 @@
+.song-table {
+  .title-th {
+    color: var(--font-color-grey2);
+    font-weight: normal;
+  }
+
+  .title-td {
+    color: var(--font-color-white);
+  }
+
+  .padding-space {
+    padding-left: 24px;
+  }
+
+  .song-active {
+    color: $theme-color;
+
+    .high-light-text {
+      color: $theme-color;
+    }
+  }
+
+  .index-wrap {
+    text-align: center;
+    color: var(--font-color-grey-shallow);
+  }
+
+  .img-wrap {
+    position: relative;
+    @include img-wrap(60px);
+
+    img {
+      border-radius: 4px;
+    }
+    .play-icon {
+      @include abs-center;
+    }
+  }
+  .high-light-text {
+    color: $blue;
+  }
+
+  .song-table-name-cell {
+    @include text-ellipsis;
+    display: flex;
+    align-items: center;
+    flex: 0 0 24px;
+
+    .song-table-name {
+      overflow: hidden;
+      @include text-ellipsis;
+    }
+
+    .mv-icon {
+      width: 24px;
+      margin-left: 4px;
+    }
+  }
+}
+.tools{
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  text-align: left;
+  align-self: center;
+  display: none;
+  padding-left: 12px;
+}
+.song-li{
+  height: 50px;
+  position: relative;
+  .cell{
+    display: flex;
+  }
+  &:hover {
+    background: red;
+    .time {
+      display: none;
+    }
+    .tools {
+      display: block
+    }
+  }
+}

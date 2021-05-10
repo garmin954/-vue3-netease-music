@@ -1,0 +1,63 @@
+.thumb-box{
+  padding: 16px 32px;
+  margin: auto;
+  .header{
+    display: flex;
+    .title{
+      font-size: 30px;
+      color: var(--font-color);
+    }
+    .intr{
+      margin-top: 10px;
+      display: flex;
+      color: var(--font-color);
+    }
+    .play-all{
+      margin-top: 30px;
+    }
+    .cover{
+      float: left;
+      position: relative;
+      display: inline;
+      width: 177px;
+      height: 177px;
+
+      img{
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .msk{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 209px;
+        height: 177px;
+        background: url('~@/assets/image/album.png') no-repeat;
+      }
+
+
+    }
+
+    .header-right{
+      margin-left: 60px;
+    }
+
+  }
+
+  .body{
+    margin-top: 25px;
+    .tabs-box{
+      display: flex;
+      font-size: 24px;
+      color: var(--font-color);
+    }
+    .alumb-item{
+      margin-top: 20px;
+    }
+    .desc-thumb{
+      line-height: 24px;
+    }
+  }
+}

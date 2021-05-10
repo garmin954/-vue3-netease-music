@@ -1,0 +1,93 @@
+.singer{
+  padding: 16px 32px;
+  margin: auto;
+
+  .artist-box {
+    height: 200px;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 10px ;
+    position: relative;
+    z-index: 1;
+    padding: 23px;
+
+    .avatar {
+      align-self: center;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      img {
+        width: 100%;
+      }
+    }
+
+    .name{
+      h3{
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 10px;
+        color: #ededed;
+      }
+    }
+
+    .desc{
+      margin: 10px 0px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:4!important;
+      color: #ededed;
+      min-height: 60px;
+    }
+
+    .works{
+      ul{
+        display: flex;
+        li{
+          align-self: center;
+          display: inline-block;
+          margin-right:20px;
+          border-right: solid 1px #ededed;
+          padding-right: 20px;
+          height: 20px;
+          line-height: 20px;
+
+          &:nth-last-child(1){
+            border-right: 0px;
+          }
+          h4{
+            font-size: 16px;
+            display: inline-block;
+            margin-right: 10px;
+            color: #ededed;
+
+          }
+          span{
+            font-size: 15px;
+            color: #ededed;
+          }
+        }
+      }
+    }
+
+  }
+  .bg-image-ncc{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .body{
+    .tab-item{
+      margin: 20px 0px;
+
+      display: flex;
+      h3{
+        font-size: 25px;
+      }
+    }
+  }
+
+}
+

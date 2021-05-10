@@ -1,0 +1,18 @@
+.playlists {
+  padding: 12px;
+
+  .top-play-list-card {
+    margin-bottom: 16px;
+  }
+
+  .playlist-cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 36px;
+  }
+}
