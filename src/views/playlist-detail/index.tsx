@@ -10,6 +10,7 @@ import {ElInput} from 'element-plus';
 import useLoading from '@/hooks/useLoading';
 
 import '@/assets/style/playlist-detail/index.scss';
+import {SongInterface} from '@/utils/interface';
 const MAX = 500;
 const SONG_IDX = 0;
 const COMMENT_IDX = 1;
@@ -34,7 +35,7 @@ export default defineComponent({
       inputFocus: false,
     });
 
-    console.log(useLoading());
+    // console.log(useLoading());
     // 获取数据
     const init = async () => {
       const { playlist } = await getListDetail({ id: id.value });
@@ -46,7 +47,7 @@ export default defineComponent({
     const genSonglist = async (playlist: any) => {
       const trackIds = playlist.trackIds.map((item: any ) => item.id);
       const songDetails = await getSongDetail(trackIds.slice(0, MAX));
-      const songs = songDetails.songs.map(({ id, name, al, ar, mv, dt ,fee}: any) =>
+      const songs = songDetails.songs.map(({ id, name, al, ar, mv, dt ,fee}: SongInterface) =>
         createSong({
           id,
           name,
@@ -81,7 +82,7 @@ export default defineComponent({
     };
 
     const scrollToHeader = () => {
-      console.log(headerRef.value, 'headerRef.value=========>');
+      // console.log(headerRef.value, 'headerRef.value=========>');
       if (headerRef.value) {
         // scrollInto(headerRef.value.$el);
       }

@@ -28,7 +28,6 @@ export default defineComponent({
 
     onMounted(() => {
       state.id = route.params.id;
-      getArtistsReq();
     });
 
     watch(() => route, () => {
@@ -59,12 +58,14 @@ export default defineComponent({
 
     return () => (
       <div >
-        <div class='table'>
-          <song-table
-            songs={state.hotSongs}
-            stripe={true}
-          />
-        </div>
+        {state.id ? (
+          <div class='table'>
+            <song-table
+              songs={state.hotSongs}
+              stripe={true}
+            />
+          </div>
+        ) : null}
       </div>
     );
   },

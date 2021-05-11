@@ -29,7 +29,7 @@ export default defineComponent({
     };
 
     onUpdated(()=>{
-      console.log(props.playlist);
+      // console.log(props.playlist);
     })
     const setPlaylist = (songs: any) => store.commit('music/setPlaylist', songs);
     const startSong = (song: any) => store.dispatch('music/startSong', song);

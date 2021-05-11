@@ -7,7 +7,7 @@ export interface MusicGetterInterface {
 }
 export const currentIndex = (state: MusicStateInterface) => {
   const { currentSong, playlist } = state;
-  return playlist.findIndex(({ id }: SongInterface) => id === currentSong.id);
+  return playlist.findIndex(({ id }: SongInterface) => id === (currentSong as SongInterface).id);
 };
 export const nextSong = (state: MusicStateInterface, getters: MusicGetterInterface) => {
   const { playlist, playMode } = state;
@@ -71,7 +71,7 @@ export const prevSong = (state: MusicStateInterface, getters: MusicGetterInterfa
 };
 // 当前是否有歌曲在播放
 export const hasCurrentSong = (state: MusicStateInterface) => {
-  return isDef(state.currentSong.id);
+  return isDef((state.currentSong as SongInterface).id);
 };
 // 获取随机索引
 function getRandomIndex(playlist: SongInterface [] , currentIndex: number) {

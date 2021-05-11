@@ -30,7 +30,7 @@ export default defineComponent({
     const getSongs = async (type=0) => {
       state.activeTabIndex = type;
       const { data } = await getTopSongs(state.activeTabIndex);
-      console.log(data);
+      // console.log(data);
       state.songs = data.map((song: any) => {
         const {
           id,

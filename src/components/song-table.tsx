@@ -327,7 +327,7 @@ export default defineComponent({
     });
 
     onUpdated(() => {
-      console.log(props.songs);
+      // console.log(props.songs);
     });
     return () => props.songs.length ? (
       <el-table rowClassName={'song-li'} class='song-table' {...tableAttrs.value}>

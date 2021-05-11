@@ -70,7 +70,7 @@ export default defineComponent({
     const startSong = (song: any) => store.dispatch('music/startSong', song);
 
     watch(() => route, () => {
-      console.log(route);
+      // console.log(route);
       state.id = route.params.id;
     }, {deep: true});
 

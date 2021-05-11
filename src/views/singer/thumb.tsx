@@ -28,26 +28,29 @@ export default defineComponent({
 
     const onGetArtistAlbum = (result: any) => {
       const {hotAlbums} = result;
-      console.log('hotAlbums==========>', hotAlbums);
+      // console.log('hotAlbums==========>', hotAlbums);
       state.hotAlbums = hotAlbums;
     };
     return () => (
-      <div >
-        <simple-pagination
-          getData={getArtistAlbum}
-          getDataParams={{id: state.id}}
-          limit={20}
-          onGetDataSuccess={onGetArtistAlbum}
-        >
-          {{
-            lists: () => (
-              <Thumb
-                list={state.hotAlbums}
-              />
-            ),
-          }}
+      <div>
+        {state.id ? (
 
-        </simple-pagination>
+          <simple-pagination
+            getData={getArtistAlbum}
+            getDataParams={{id: state.id}}
+            limit={20}
+            onGetDataSuccess={onGetArtistAlbum}
+          >
+            {{
+              lists: () => (
+                <Thumb
+                  list={state.hotAlbums}
+                />
+              ),
+            }}
+
+          </simple-pagination>
+        ): null}
       </div>
     );
   },

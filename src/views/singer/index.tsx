@@ -1,4 +1,4 @@
-import {defineComponent, onBeforeMount, ref, watch, reactive, onMounted} from 'vue';
+import {defineComponent, onBeforeMount, ref, watch, reactive, onMounted, nextTick} from 'vue';
 import {useRoute, RouterView, useRouter} from 'vue-router';
 import {ElRow, ElCol, ElImage, ElButton} from 'element-plus';
 
@@ -26,10 +26,7 @@ export default defineComponent({
       id: 0,
       activeTab: 0,
     } as any);
-    // title: '歌曲',
-    //   key: 'songs',
-    //   to: 'songs',
-      // '热门作品', '所有专辑', '相关MV'
+
     const tabs = [
       {
         title: '热门作品',
@@ -47,9 +44,10 @@ export default defineComponent({
         to: 'mv',
       },
     ];
-
     onMounted(() => {
-      state.id = route.params.id;
+      nextTick(() => {
+        state.id = route.params.id;
+      });
     });
 
     const getArtistsReq = async () => {

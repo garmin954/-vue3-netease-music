@@ -18,7 +18,7 @@ export default defineComponent({
   setup(props) {
     const route = useRoute();
     onMounted(() => {
-      console.log(props.list);
+      // console.log(props.list);
     });
 
     return () => (

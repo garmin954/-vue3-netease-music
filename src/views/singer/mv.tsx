@@ -24,44 +24,48 @@ export default defineComponent({
     });
     const onGetArtistMv = (result: any) => {
       const {mvs} = result;
-      console.log('hotAlbums==========>', mvs);
+      // console.log('hotAlbums==========>', mvs);
       state.mvs = mvs;
     };
     return () => (
-      <simple-pagination
-        getData={getArtistsMv}
-        getDataParams={{id: state.id}}
-        limit={20}
-        more={'hasMore'}
-        onGetDataSuccess={onGetArtistMv}
-      >
-        {{
-          lists: () => {
-            return (
-              <ul class='list-wrap'>
-              {
-                state.mvs.map((mv: any) => {
-                  return (
-                    <li
-                      key={mv.id}
-                      class={'list-item'}
-                    >
-                      <mv-card
-                        author={mv.artistName}
-                        id={mv.id}
-                        img={mv.imgurl}
-                        name={mv.name}
-                        playCount={mv.playCount}
-                      />
-                    </li>
-                  );
-                })
-              }
-              </ul>
-            );
-          },
-        }}
-      </simple-pagination>
+      <div>
+        {state.id ? (
+          <simple-pagination
+            getData={getArtistsMv}
+            getDataParams={{id: state.id}}
+            limit={20}
+            more={'hasMore'}
+            onGetDataSuccess={onGetArtistMv}
+          >
+            {{
+              lists: () => {
+                return (
+                  <ul class='list-wrap'>
+                    {
+                      state.mvs.map((mv: any) => {
+                        return (
+                          <li
+                            key={mv.id}
+                            class={'list-item'}
+                          >
+                            <mv-card
+                              author={mv.artistName}
+                              id={mv.id}
+                              img={mv.imgurl}
+                              name={mv.name}
+                              playCount={mv.playCount}
+                            />
+                          </li>
+                        );
+                      })
+                    }
+                  </ul>
+                );
+              },
+            }}
+          </simple-pagination>
+        ): null}
+      </div>
     );
   },
 });

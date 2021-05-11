@@ -34,9 +34,9 @@ const vendor = ( () => {
   return false;
 })();
 
-export function prefixStyle(style: string) {
+export function prefixStyle(style: string): string {
   if (vendor === false) {
-    return false;
+    return '';
   }
 
   if (vendor === 'standard') {

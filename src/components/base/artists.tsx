@@ -1,7 +1,7 @@
 import {defineComponent, onMounted, createVNode, h} from 'vue';
 import {RouterLink} from 'vue-router';
 import HighlightText from '@/components/base/highlight-text';
-import '@/assets/style/components/base/artists.scss'
+import '@/assets/style/components/base/artists.scss';
 export default defineComponent({
   name: 'Artists',
   components: {
@@ -20,14 +20,6 @@ export default defineComponent({
   },
   setup(props) {
 
-    onMounted(() => {
-      // console.log(props.data);
-    });
-    const splitSymbol = createVNode('span', {
-      style: {
-        fontWeight: '500',
-      },
-    }, ()=>'/');
     return () => (
       <div class={'artists-box'}>
         {
@@ -41,7 +33,7 @@ export default defineComponent({
                 {(index + 1 < props.list.length) ? h('text', {
                   style: {
                     fontWeight: 'bold',
-                    margin: '0 4px'
+                    margin: '0 4px',
                   },
                 }, '/') :  ''}
               </router-link>

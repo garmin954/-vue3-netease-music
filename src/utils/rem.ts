@@ -26,12 +26,12 @@ const calc = (): void =>  {
 
 // 根据基准字号计算
 // 用于静态样式
-export function toRem(px: number) {
+export function toRem(px: number): string {
   return `${px / remBase}rem`;
 }
 
 // 根据当前的html根字体大小计算
 // 用于某些js的动态计算
-export function toCurrentRem(px: number) {
+export function toCurrentRem(px: number) : string {
   return `${px / htmlFontSize}rem`;
 }
